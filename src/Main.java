@@ -19,7 +19,7 @@ public class Main {
         artwork1.printInfofo();
         artwork2.printInfofo();
 
-        // comparison
+        
         if (artwork1.getYear() < artwork2.getYear()) {
             System.out.println("Mona Lisa is older than Guernica");
         } else {

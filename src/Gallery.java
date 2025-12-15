@@ -9,7 +9,7 @@ public class Gallery {
         this.yearBuilt = yearBuilt;
     }
 
-    // getters
+    
     public String getGalleryName() {
         return galleryName;
     }
@@ -22,7 +22,7 @@ public class Gallery {
         return yearBuilt;
     }
 
-    // setters
+    
     public void setGalleryName(String galleryName) {
         this.galleryName = galleryName;
     }
@@ -36,10 +36,6 @@ public class Gallery {
     }
 
     public void printInfofo() {
-        System.out.println(
-            "Gallery: " + galleryName +
-            ", Location: " + location +
-            ", Year built: " + yearBuilt
-        );
+        System.out.println("Gallery: " + galleryName + ", Location: " + location + ", Year built: " + yearBuilt );
     }
 }

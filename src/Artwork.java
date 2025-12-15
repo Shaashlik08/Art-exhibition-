@@ -11,7 +11,7 @@ public class Artwork {
         this.year = year;
     }
 
-    // getters
+    
     public String getTitle() {
         return title;
     }
@@ -38,11 +38,6 @@ public class Artwork {
     }
 
     public void printInfofo() {
-        System.out.println(
-            "Artwork: " + title +
-            ", Artist: " + artist.getName() +
-            ", Gallery: " + gallery.getGalleryName() +
-            ", Year: " + year
-        );
+        System.out.println("Artwork: " + title +", Artist: " + artist.getName() + ", Gallery: " + gallery.getGalleryName() + ", Year: " + year);
     }
 }

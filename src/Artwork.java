@@ -28,7 +28,7 @@ public class Artwork {
         return year;
     }
 
-    // setters
+    
     public void setTitle(String title) {
         this.title = title;
     }

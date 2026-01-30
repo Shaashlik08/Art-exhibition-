@@ -9,10 +9,10 @@ import java.sql.*;
 public class SimpleAPI {
 
     public static void main(String[] args) throws IOException {
-        // Создаем сервак
+        
         HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
         
-        // Добавляем два пути для солидности
+        
         server.createContext("/artists", new ArtistHandler());
         server.createContext("/artworks", new ArtworkHandler());
         
@@ -23,7 +23,6 @@ public class SimpleAPI {
         server.start();
     }
 
-    // Обработчик для Артистов
     static class ArtistHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
@@ -31,7 +30,7 @@ public class SimpleAPI {
         }
     }
 
-    // Обработчик для Картин
+    
     static class ArtworkHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange exchange) throws IOException {
@@ -39,7 +38,7 @@ public class SimpleAPI {
         }
     }
 
-    // Общий метод, чтобы не дублировать код (студенческий лайфхак)
+    
     private static void sendJsonResponse(HttpExchange exchange, String query, String table) throws IOException {
         StringBuilder json = new StringBuilder("[");
         try (Connection conn = DBConnection.getConnection();

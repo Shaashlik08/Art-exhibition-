@@ -3,21 +3,19 @@ import java.sql.PreparedStatement;
 
 public class ArtworkDelete {
 
-public static void main(String[] args) {
+    public static void main(String[] args) {
+        String sql = "DELETE FROM artwork WHERE id = ?";
 
- String sql = "DELETE FROM artwork WHERE id = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-try (
- Connection conn = DBConnection.getConnection();
-PreparedStatement ps = conn.prepareStatement(sql)
-) {
+            ps.setInt(1, 1); 
+            int rows = ps.executeUpdate();
+            System.out.println("Artwork deleted. Rows affected: " + rows);
 
- ps.setInt(1, 1);
- ps.executeUpdate();
- System.out.println("Artwork deleted");
-
- } catch (Exception e) {
- e.printStackTrace();
- }
-}
+        } catch (Exception e) {
+            System.out.println("ERROR during delete:");
+            e.printStackTrace();
+        }
+    }
 }

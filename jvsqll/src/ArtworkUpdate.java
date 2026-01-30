@@ -3,23 +3,21 @@ import java.sql.PreparedStatement;
 
 public class ArtworkUpdate {
 
- public static void main(String[] args) {
+    public static void main(String[] args) {
+        String sql = "UPDATE artwork SET year = ? WHERE title = ?";
 
-String sql = "UPDATE artwork SET year = ? WHERE title = ?";
+        try (Connection conn = DBConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
 
-try (
- Connection conn = DBConnection.getConnection();
-PreparedStatement ps = conn.prepareStatement(sql)
-) {
+            ps.setInt(1, 1890); 
+            ps.setString(2, "Starry Night");
 
- ps.setInt(1, 1890);
-ps.setString(2, "Starry Night");
+            int rows = ps.executeUpdate();
+            System.out.println("Artwork updated. Rows affected: " + rows);
 
-ps.executeUpdate();
-System.out.println("Artwork updated");
-
-} catch (Exception e) {
-e.printStackTrace();
-}
-}
+        } catch (Exception e) {
+            System.out.println("ERROR during update:");
+            e.printStackTrace();
+        }
+    }
 }
